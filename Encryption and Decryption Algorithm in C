@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void main(){
+    static int s,i,k,n;
+    char c[100];
+    while(1)
+    {
+        printf("\n1:Encryption \n2.Decryption \n3.Exit \n");
+        printf("Enter the choice");
+        scanf("%d",&s);
+        switch(s){
+            case 1:
+                printf("Enter the key value");
+                scanf("%d",&k);
+                printf("Enter the length of the text");
+                scanf("%d",&n);
+                printf("Enter the data to be encrypted");
+                for(i=0;i<=n;i++)
+                    scanf("%c",&c[i]);
+                for(i=0;i<=n;i++){
+                    c[i]=c[i]+k;
+                    if(c[i]>90)
+                        c[i]=c[i]-26;
+                }
+                printf("encrypted data");
+                for (i=1;i<=n;i++)
+                    printf("%c",c[i]);
+                break;
+            case 2:
+                printf("Enter the key value");
+                scanf("%d",&k);
+                printf("Enter the length of text:");
+                scanf("%d",&n);
+                printf("Enter the data to be Decrypted");
+                for(i=0;i<=n;i++)
+                    scanf("%c",&c[i]);
+                for(i=0;i<=n;i++){
+                    c[i]=c[i]-k;
+                    if(c[i]<65)
+                        c[i]=c[i]+26;
+                }
+                printf("Decrypted data");
+                for(i=1;i<=n;i++)
+                    printf("%c",c[i]);
+                break;
+                
+                case 3:
+                    exit(0);
+                default:
+                    printf("Wrong Choice");
+        }
+    }
+}
